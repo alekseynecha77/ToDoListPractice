@@ -12,6 +12,7 @@ var NodeBtn = document.getElementsByTagName('li');
 var t = document.createTextNode(textInp);
 
 li.appendChild(t);
+ul.appendChild(li);
 
 for(let i = 0; i< NodeBtn.length; i++){
     var span = document.createElement("SPAN");
@@ -33,7 +34,6 @@ for(let i =0; i<close.length; i++){
 
 
 
-ul.appendChild(li);
 
 }
 
