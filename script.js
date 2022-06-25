@@ -1,14 +1,16 @@
 document.getElementById("myBTN").onclick = function () {
-  var textInp = document.getElementById("anything").value;
+  var textInp = document.getElementById("anything")
 
-  var li = document.createElement("li");
   var ul = document.getElementById("unorderlist");
 
   var NodeBtn = document.getElementsByTagName("li");
-  var t = document.createTextNode(textInp);
 
-  li.appendChild(t);
-  ul.appendChild(li);
+  ul.insertAdjacentHTML(
+    'afterbegin',
+    `<li>${textInp.value}</li>`
+
+  );
+
 
   for (let i = 0; i < NodeBtn.length; i++) {
     var span = document.createElement("SPAN");
