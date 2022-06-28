@@ -5,34 +5,26 @@ document.getElementById("myBTN").onclick = function () {
 
   var ul = document.getElementById("unorderlist");
 
-  // var NodeBtn = document.getElementsByTagName('li');
-
   var button = document.createElement("button");
   var li = document.createElement("li");
-  li.innerHTML += `<li>${textInp.value}</li>`;
+  li.textContent = textInp.value;
   button.innerHTML = "edit";
 
 
   li.appendChild(button);
   ul.appendChild(li);
 
-
   var selectLI = document.getElementsByTagName('li');
- for (let i = 0; i < selectLI.length; i++) {
+  for (let i = 0; i < selectLI.length; i++) {
+ 
+   var span = document.createElement("SPAN");
+     var txt = document.createTextNode("\u00D7");
+     span.className = "close";
+     span.appendChild(txt);
+     selectLI[i].appendChild(span);
+         }
 
-  var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    selectLI[i].appendChild(span);
-        }
-  // for (let i = 0; i < NodeBtn.length; i++) {
-  //   var span = document.createElement("SPAN");
-  //   var txt = document.createTextNode("\u00D7");
-  //   span.className = "close";
-  //   span.appendChild(txt);
-  //   NodeBtn[i].appendChild(span);
-  // }
+
   var close = document.getElementsByClassName("close");
   for (let i = 0; i < close.length; i++) {
     close[i].onclick = function () {
