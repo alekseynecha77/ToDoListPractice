@@ -29,6 +29,8 @@ document.getElementById("myBTN").onclick = function () {
       div.style.display = "none";
     };
   }
+
+  
 };
 
 editBTN.addEventListener("click", (e) => {
