@@ -37,10 +37,11 @@ document.getElementById("myBTN").onclick = function () {
 };
 
 editBTN.addEventListener("click", (e) => {
+
   if (e.target.tagName === "BUTTON") {
     const button = e.target;
     const li = button.parentNode;
-    const ul = li.parentNode;
+        const ul = li.appendChild;
 
     if (button.textContent === "remove") {
       ul.removeChild(li);
@@ -59,6 +60,7 @@ editBTN.addEventListener("click", (e) => {
       li.insertBefore(span, input);
       li.removeChild(input);
       button.textContent = "edit";
+
     }
   }
 });
