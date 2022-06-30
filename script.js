@@ -1,5 +1,6 @@
 const ul = document.getElementById("unorderlist");
 
+const textInp = document.getElementById("anything");
 
 document.getElementById("myBTN").onclick = function () {
   var textInp = document.getElementById("anything");
@@ -10,9 +11,12 @@ document.getElementById("myBTN").onclick = function () {
 
 
   const btn = document.createElement('button');
-  btn.textContent = 'edit';
+  btn.innerHTML = 'edit';
 
-  li.appendChild(btn);
+
+ li.appendChild(btn); 
+
+  li.appendChild(textInp);
 
   ul.appendChild(li);
 
@@ -49,7 +53,8 @@ ul.addEventListener("click", (e) => {
       ul.removeChild(li);
 
     }else if (button.textContent.toLowerCase() === "edit") {
-      const span = li.firstElementChild;
+      const span = textInp.firstElementChild;
+
       const input = document.createElement('input');
       input.value = span.textContent;
       li.insertBefore(input, span);
