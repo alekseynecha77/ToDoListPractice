@@ -1,6 +1,4 @@
-const AnotherUL = document.querySelector('#unorderlist');
 const edit_El = document.createElement("button");
-
 
 document.getElementById("myBTN").onclick = function () {
   var textInp = document.getElementById("anything");
@@ -8,17 +6,11 @@ document.getElementById("myBTN").onclick = function () {
 
   var li = document.createElement("li");
 
-
-
-
   edit_El.classList.add("edit");
   edit_El.innerHTML = "Edit";
-  
-  
+
   li.textContent = textInp.value;
   li.appendChild(edit_El);
-  
-  
 
   ul.appendChild(li);
 
@@ -40,18 +32,13 @@ document.getElementById("myBTN").onclick = function () {
   }
 };
 
-
-edit_El.addEventListener('click',() => {
-   if(edit_El.textContent.toLowerCase() === 'edit') {
-
-    edit_El.textContent = 'save';
-    } 
-    else {
-
-      edit_El.textContent = 'edit';
-    }
-  
-  });
+edit_El.addEventListener("click", () => {
+  if (edit_El.textContent.toLowerCase() === "edit") {
+    edit_El.textContent = "save";
+  } else {
+    edit_El.textContent = "edit";
+  }
+});
 
 function myFunction() {
   const list = document.getElementById("unorderlist");
