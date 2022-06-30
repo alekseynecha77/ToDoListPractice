@@ -1,29 +1,35 @@
-const editBTN = document.getElementById("unorderlist");
+const AnotherUL = document.querySelector('#unorderlist');
+const edit_El = document.createElement("button");
+
 
 document.getElementById("myBTN").onclick = function () {
   var textInp = document.getElementById("anything");
-
   var ul = document.getElementById("unorderlist");
 
-  var button = document.createElement("button");
   var li = document.createElement("li");
+
+
+
+
+  edit_El.classList.add("edit");
+  edit_El.innerHTML = "Edit";
+  
+  
   li.textContent = textInp.value;
-  button.innerHTML = "edit";
+  li.appendChild(edit_El);
+  
+  
 
-
-  li.appendChild(button);
   ul.appendChild(li);
 
-  var selectLI = document.getElementsByTagName('li');
+  var selectLI = document.getElementsByTagName("li");
   for (let i = 0; i < selectLI.length; i++) {
- 
-   var span = document.createElement("SPAN");
-     var txt = document.createTextNode("\u00D7");
-     span.className = "close";
-     span.appendChild(txt);
-     selectLI[i].appendChild(span);
-         }
-
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    selectLI[i].appendChild(span);
+  }
 
   var close = document.getElementsByClassName("close");
   for (let i = 0; i < close.length; i++) {
@@ -32,38 +38,20 @@ document.getElementById("myBTN").onclick = function () {
       div.style.display = "none";
     };
   }
-
-  
 };
 
-editBTN.addEventListener("click", (e) => {
 
-  if (e.target.tagName === "BUTTON") {
-    const button = e.target;
-    const li = button.parentNode;
-        const ul = li.appendChild;
+edit_El.addEventListener('click',() => {
+   if(edit_El.textContent.toLowerCase() === 'edit') {
 
-    if (button.textContent === "remove") {
-      ul.removeChild(li);
-    } else if (button.textContent === "edit") {
-      const span = li.firstElementChild;
-      const input = document.createElement("input");
-      input.type = "text";
-      input.value = span.textContent;
-      li.insertBefore(input, span);
-      li.removeChild(span);
-      button.textContent = "save";
-    } else if (button.textContent === "save") {
-      const input = li.firstElementChild;
-      const span = document.createElement("span");
-      span.textContent = input.value;
-      li.insertBefore(span, input);
-      li.removeChild(input);
-      button.textContent = "edit";
+    edit_El.textContent = 'save';
+    } 
+    else {
 
+      edit_El.textContent = 'edit';
     }
-  }
-});
+  
+  });
 
 function myFunction() {
   const list = document.getElementById("unorderlist");
