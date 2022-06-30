@@ -1,16 +1,20 @@
-const edit_El = document.createElement("button");
+const ul = document.getElementById("unorderlist");
+
 
 document.getElementById("myBTN").onclick = function () {
   var textInp = document.getElementById("anything");
-  var ul = document.getElementById("unorderlist");
 
   var li = document.createElement("li");
 
-  edit_El.classList.add("edit");
-  edit_El.innerHTML = "Edit";
+  li.innerHTML = textInp.value;
 
-  li.textContent = textInp.value;
-  li.appendChild(edit_El);
+
+
+
+  var btn = document.createElement("button");
+  btn.textContent = "Edit";
+  li.appendChild(btn);
+
 
   ul.appendChild(li);
 
@@ -30,15 +34,45 @@ document.getElementById("myBTN").onclick = function () {
       div.style.display = "none";
     };
   }
+
+  
 };
 
-edit_El.addEventListener("click", () => {
-  if (edit_El.textContent.toLowerCase() === "edit") {
-    edit_El.textContent = "save";
-  } else {
-    edit_El.textContent = "edit";
+
+ul.addEventListener("click", (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    const button = e.target;
+    const li = button.parentNode;
+    const ul = li.parentNode;
+
+    if (button.textContent === 'remove') {
+      ul.removeChild(li);
+
+    }else if (button.textContent.toLowerCase() === "edit") {
+      const span = li.firstElementChild;
+      const input = document.createElement(input);
+      input.type = 'text';
+      input.value = span.textContent;
+      li.insertBefore(input, span);
+      li.removeChild(span);
+      button.textContent = "save";
+  } else if(button.textContent.toLowerCase() === "save"){
+    const input = li.firstElementChild;
+    const span = document.createElement('span');
+    span.textContent = input.value;
+    li.insertBefore(span, input);
+    li.removeChild(input);
+    button.textContent = 'edit';
+  }
   }
 });
+// ul.addEventListener("click", () => {
+//   if (edit_El.textContent.toLowerCase() === "edit") {
+//     edit_El.textContent = "save";
+//   } else {
+//     edit_El.textContent = "edit";
+//   }
+// });
 
 function myFunction() {
   const list = document.getElementById("unorderlist");
