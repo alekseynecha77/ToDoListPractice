@@ -5,18 +5,17 @@ document.getElementById("myBTN").onclick = function () {
   var textInp = document.getElementById("anything");
 
   var li = document.createElement("li");
-
+  
   li.innerHTML = textInp.value;
 
 
+  const btn = document.createElement('button');
+  btn.textContent = 'edit';
 
-
-  var btn = document.createElement("button");
-  btn.textContent = "Edit";
   li.appendChild(btn);
 
-
   ul.appendChild(li);
+
 
   var selectLI = document.getElementsByTagName("li");
   for (let i = 0; i < selectLI.length; i++) {
@@ -38,6 +37,7 @@ document.getElementById("myBTN").onclick = function () {
   
 };
 
+ 
 
 ul.addEventListener("click", (e) => {
   if (e.target.tagName === 'BUTTON') {
@@ -50,29 +50,21 @@ ul.addEventListener("click", (e) => {
 
     }else if (button.textContent.toLowerCase() === "edit") {
       const span = li.firstElementChild;
-      const input = document.createElement(input);
-      input.type = 'text';
+      const input = document.createElement('input');
       input.value = span.textContent;
       li.insertBefore(input, span);
       li.removeChild(span);
       button.textContent = "save";
-  } else if(button.textContent.toLowerCase() === "save"){
+  } else {
     const input = li.firstElementChild;
     const span = document.createElement('span');
-    span.textContent = input.value;
-    li.insertBefore(span, input);
-    li.removeChild(input);
+     span.textContent = input.value;
+     li.insertBefore(span, input);
+     li.removeChild(input); 
     button.textContent = 'edit';
   }
   }
 });
-// ul.addEventListener("click", () => {
-//   if (edit_El.textContent.toLowerCase() === "edit") {
-//     edit_El.textContent = "save";
-//   } else {
-//     edit_El.textContent = "edit";
-//   }
-// });
 
 function myFunction() {
   const list = document.getElementById("unorderlist");
