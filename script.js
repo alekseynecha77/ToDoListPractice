@@ -22,6 +22,7 @@ document.getElementById("myBTN").onclick = function () {
 
   var selectLI = document.getElementsByTagName("li");
   for (let i = 0; i < selectLI.length; i++) {
+    var span = document.createElement('span');
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
