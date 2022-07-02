@@ -6,16 +6,15 @@ document.getElementById("myBTN").onclick = function () {
 
   var li = document.createElement("li");
   
-  li.innerHTML = textInp.value;
-
-  const spanTag = document.createElement('span');
-
+  const TagToLi = document.createElement('span');
+   TagToLi.innerHTML = textInp.value;
   const btn = document.createElement('button');
   btn.innerHTML = 'edit';
 
-  li.appendChild(spanTag);
+  li.appendChild(TagToLi);
 
- li.appendChild(btn); 
+
+  li.appendChild(btn); 
 
 
   ul.appendChild(li);
@@ -23,7 +22,6 @@ document.getElementById("myBTN").onclick = function () {
 
   var selectLI = document.getElementsByTagName("li");
   for (let i = 0; i < selectLI.length; i++) {
-    var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
@@ -54,7 +52,6 @@ ul.addEventListener("click", (e) => {
 
     }else if (button.textContent.toLowerCase() === "edit") {
       const span = li.firstElementChild;
-
       const input = document.createElement('input');
       input.value = span.textContent;
       li.insertBefore(input, span);
